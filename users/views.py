@@ -166,6 +166,10 @@ def inbox(request):
     return render(request, 'users/inbox.html', context)
 
 
+
+'''
+message viewing function
+'''
 @login_required(login_url='login')
 def viewMessage(request, pk):
     profile = request.user.profile
@@ -178,6 +182,12 @@ def viewMessage(request, pk):
     return render(request, 'users/message.html', context)
 
 
+
+'''
+view for the message feature
+
+gets the recipient using the profile primary key while sender is
+the current user's profile'''
 def createMessage(request, pk):
     recipient = Profile.objects.get(id=pk)
     form = MessageForm()

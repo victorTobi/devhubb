@@ -39,8 +39,11 @@ def project(request,  pk):
    return render(request, 'projects/single-project.html', context)
 
 
-# view for creating new projects
-# this view cannot be accessed if the user is not logged in
+
+'''
+ view for creating new projects = createProject
+ this view cannot be accessed if the user is not logged in
+ '''
 @login_required(login_url="login")
 def createProject(request):
     profile = request.user.profile
@@ -59,9 +62,11 @@ def createProject(request):
 
 
 
-#view to edit projects
-#cannot be viewed if user is not logged in
-#unathenticated users will be redirected to login(decorator below)
+'''
+view to edit projects
+cannot be viewed if user is not logged in
+unathenticated users will be redirected to login(decorator below)
+'''
 @login_required(login_url="login")
 def updateProject(request, pk):
     profile = request.user.profile
@@ -80,9 +85,11 @@ def updateProject(request, pk):
 
 
 
-#view/function to delete projects
-#cannot be used if user is not logged in
-#decorator below redirects unauthentcated users to loginpage
+'''
+view/function to delete projects = deleteProject
+cannot be used if user is not logged in
+decorator below redirects unauthentcated users to loginpage
+'''
 @login_required(login_url="login")
 def deleteProject(request, pk):
     profile = request.user.profile

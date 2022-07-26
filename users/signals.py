@@ -8,6 +8,8 @@ from django.conf import settings
 
 
 #@receiver(post_save, sender=Profile)
+'''
+creates user profile as a user registers'''
 def createProfile(sender, instance, created, **kwargs):
     print('Profile signal triggered')
     if created:

@@ -33,6 +33,9 @@ class Profile(models.Model):
         return str(self.username)
 
 
+'''
+message model
+'''
 class Message(models.Model):
     sender = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, blank=True)
     recipient = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, blank=True, related_name='messages')
@@ -52,6 +55,11 @@ class Message(models.Model):
         ordering = ['is_read', '-created']
 
 
+
+
+'''
+skill model
+'''
 class Skill(models.Model):
     owner = models.ForeignKey(
         Profile, on_delete=models.CASCADE, null=True, blank=True)
